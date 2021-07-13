@@ -30,10 +30,9 @@ namespace GuessTheNumber.JogoIniciado
                     Console.WriteLine("Gostaria de jogar novamente? 0 - SIM, 1 - NÃO");
                     Console.WriteLine("0 - SIM");
                     Console.WriteLine("1 - NÃO");
-                    int jogarNovamente;
-                    Int32.TryParse(Console.ReadLine(), out jogarNovamente);
-                    if (jogarNovamente == 0) NovoJogo(dificuldadeSelecionada);
-                    if (jogarNovamente == 1) return;
+                    Int32.TryParse(Console.ReadLine(), out int jogarNovamenteVitoria);
+                    if (jogarNovamenteVitoria == 0) NovoJogo(dificuldadeSelecionada);
+                    if (jogarNovamenteVitoria == 1) return;
                 }
                 else if (numeroChutado < numeroGerado) Console.WriteLine("Muito baixo");
                 else if (numeroChutado > numeroGerado) Console.WriteLine("Muito Alto");
@@ -41,6 +40,12 @@ namespace GuessTheNumber.JogoIniciado
                 numeroChutado = novoChute;
             }
             Console.WriteLine($"Tempo esgotado. Não foi dessa vez, amigo. O número gerado era o {numeroGerado}.");
+            Console.WriteLine("Gostaria de jogar novamente? 0 - SIM, 1 - NÃO");
+            Console.WriteLine("0 - SIM");
+            Console.WriteLine("1 - NÃO");
+            Int32.TryParse(Console.ReadLine(), out int jogarNovamente);
+            if (jogarNovamente == 0) NovoJogo(dificuldadeSelecionada);
+            if (jogarNovamente == 1) return;
         }
     }
 }
