@@ -17,7 +17,7 @@ namespace GuessTheNumber.JogoIniciado
             int tempoDificuldade = Tempos.RetornarTempo(dificuldadeSelecionada);
             int numeroChutado;
             tempoCorrido.Start();
-            while (!Int32.TryParse(Console.ReadLine(), out numeroChutado))
+            while (!int.TryParse(Console.ReadLine(), out numeroChutado))
             {
                 Console.WriteLine("Valor Inválido.");
             }
@@ -30,20 +30,20 @@ namespace GuessTheNumber.JogoIniciado
                     Console.WriteLine("Gostaria de jogar novamente? 0 - SIM, 1 - NÃO");
                     Console.WriteLine("0 - SIM");
                     Console.WriteLine("1 - NÃO");
-                    Int32.TryParse(Console.ReadLine(), out int jogarNovamenteVitoria);
+                    int.TryParse(Console.ReadLine(), out int jogarNovamenteVitoria);
                     if (jogarNovamenteVitoria == 0) NovoJogo(dificuldadeSelecionada);
                     if (jogarNovamenteVitoria == 1) return;
                 }
                 else if (numeroChutado < numeroGerado) Console.WriteLine("Muito baixo");
                 else if (numeroChutado > numeroGerado) Console.WriteLine("Muito Alto");
-                Int32.TryParse(Console.ReadLine(), out int novoChute);
+                int.TryParse(Console.ReadLine(), out int novoChute);
                 numeroChutado = novoChute;
             }
             Console.WriteLine($"Tempo esgotado. Não foi dessa vez, amigo. O número gerado era o {numeroGerado}.");
             Console.WriteLine("Gostaria de jogar novamente? 0 - SIM, 1 - NÃO");
             Console.WriteLine("0 - SIM");
             Console.WriteLine("1 - NÃO");
-            Int32.TryParse(Console.ReadLine(), out int jogarNovamente);
+            int.TryParse(Console.ReadLine(), out int jogarNovamente);
             if (jogarNovamente == 0) NovoJogo(dificuldadeSelecionada);
             if (jogarNovamente == 1) return;
         }
