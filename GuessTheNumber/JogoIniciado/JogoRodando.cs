@@ -20,6 +20,7 @@ namespace GuessTheNumber.JogoIniciado
             Console.WriteLine("VALENDO!!");
             while (tempoCorrido.Elapsed.TotalSeconds <= tempoDificuldade)
             {
+                double tempoFixoEmSegundos = tempoCorrido.Elapsed.TotalSeconds;
                 int novoChute;
                 bool eUmNumero = int.TryParse(Console.ReadLine(), out novoChute);
                 if (eUmNumero)
@@ -28,7 +29,7 @@ namespace GuessTheNumber.JogoIniciado
                     if (numeroChutado == numeroGerado)
                     {
                         tempoCorrido.Stop();
-                        Console.WriteLine($"PARABÉNS!!! Você acertou o meu número pensado em {tempoCorrido.Elapsed.TotalSeconds} segundos. Será que da para bater " +
+                        Console.WriteLine($"PARABÉNS!!! Você acertou o meu número pensado em {Math.Round(tempoCorrido.Elapsed.TotalSeconds, 0)} segundos. Será que da para bater " +
                             $"o seu tempo?");
                         Console.WriteLine("Gostaria de jogar novamente? 0 - SIM, 1 - NÃO");
                         Console.WriteLine("0 - SIM");
@@ -37,8 +38,8 @@ namespace GuessTheNumber.JogoIniciado
                         if (jogarNovamenteVitoria == 0) Jogo.InicializarJogo();
                         if (jogarNovamenteVitoria == 1) return;
                     }
-                    else if (numeroChutado < numeroGerado) Console.WriteLine($"Muito baixo. Tempo restante: {tempoDificuldade - tempoCorrido.Elapsed.TotalSeconds}");
-                    else if (numeroChutado > numeroGerado) Console.WriteLine($"Muito Alto. Tempo restante: {tempoDificuldade - tempoCorrido.Elapsed.TotalSeconds}");
+                    else if (numeroChutado < numeroGerado) Console.WriteLine($"Muito baixo. Tempo restante: {Math.Round(tempoDificuldade - tempoFixoEmSegundos, 0)}");
+                    else if (numeroChutado > numeroGerado) Console.WriteLine($"Muito Alto. Tempo restante: {Math.Round(tempoDificuldade - tempoFixoEmSegundos, 0)}");
                 }
                 else Console.WriteLine("Então... Você precisa acertar um número. Que tal tentar com valores númericos dessa vez?");
             }
