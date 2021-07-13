@@ -37,8 +37,8 @@ namespace GuessTheNumber.JogoIniciado
                         if (jogarNovamenteVitoria == 0) Jogo.InicializarJogo();
                         if (jogarNovamenteVitoria == 1) return;
                     }
-                    else if (numeroChutado < numeroGerado) Console.WriteLine("Muito baixo");
-                    else if (numeroChutado > numeroGerado) Console.WriteLine("Muito Alto");
+                    else if (numeroChutado < numeroGerado) Console.WriteLine($"Muito baixo. Tempo restante: {tempoDificuldade - tempoCorrido.Elapsed.TotalSeconds}");
+                    else if (numeroChutado > numeroGerado) Console.WriteLine($"Muito Alto. Tempo restante: {tempoDificuldade - tempoCorrido.Elapsed.TotalSeconds}");
                 }
                 else Console.WriteLine("Então... Você precisa acertar um número. Que tal tentar com valores númericos dessa vez?");
             }
