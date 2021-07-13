@@ -8,21 +8,22 @@ namespace GuessTheNumber.JogoIniciado
 {
     public class JogoRodando
     {
-        internal static void NovoJogo(Enum numeroGerado)
+        internal static void NovoJogo(Dificuldades dificuldadeSelecionada)
         {
-            //var numeroGerado = Aleatorio.GerarValorBaseadoEmDificuldade(Enum.GetValues(typeof(Dificuldades)).GetValue(dificuldade));
+            TimeSpan tempoCorrido = new TimeSpan();
+            int numeroGerado = Aleatorio.GerarValorBaseadoEmDificuldade(dificuldadeSelecionada);
             int numeroChutado = Convert.ToInt32(Console.ReadLine());
-            while (numeroChutado != numeroGerado)
+            while (numeroChutado != numeroGerado || tempoCorrido.TotalSeconds <= 60)
             {
-                int novoChute = Convert.ToInt32(Console.ReadLine());
-                numeroChutado = novoChute;
                 if (numeroChutado == numeroGerado)
                 {
                     Console.WriteLine("PARABÉNS!!! Você acertou com um total de chutes.");
                     break;
                 }
-                else if (numeroChutado < numeroGerado) Console.WriteLine("<");
-                else if (numeroChutado > numeroGerado) Console.WriteLine(">");
+                else if (numeroChutado < numeroGerado) Console.WriteLine("Muito baixo");
+                else if (numeroChutado > numeroGerado) Console.WriteLine("Muito Alto");
+                int novoChute = Convert.ToInt32(Console.ReadLine());
+                numeroChutado = novoChute;
             }
         }
     }

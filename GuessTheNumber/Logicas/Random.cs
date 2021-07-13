@@ -9,27 +9,28 @@ namespace GuessTheNumber.Logicas
     {
         public static int GerarValorBaseadoEmDificuldade(Dificuldades dificuldades)
         {
-            int facilidade = Convert.ToInt32(Enum.GetValues(typeof(Dificuldades)));
+            int facilidade = Convert.ToInt32(dificuldades);
             Random valorGerado = new Random();
+            int? retorno = null;
             switch (facilidade)
             {
                 case 0:
-                    valorGerado.Next(0, 100);
+                    retorno = valorGerado.Next(0, 100);
                     break;
                 case 1:
-                    valorGerado.Next(0, 1000);
+                    retorno = valorGerado.Next(0, 1000);
                     break;
                 case 2:
-                    valorGerado.Next(0, 999999);
+                    retorno = valorGerado.Next(0, 999999);
                     break;
                 case 3:
-                    valorGerado.Next(0, 2345987);
+                    retorno = valorGerado.Next(0, 2345987);
                     break;
                 case 4:
-                    valorGerado.Next(-2345987, 2345999);
+                    retorno = valorGerado.Next(-2345987, 2345999);
                     break;
             }
-            return Convert.ToInt32(valorGerado);
+            return (int)retorno;
         }
     }
 }

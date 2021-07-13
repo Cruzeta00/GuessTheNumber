@@ -14,7 +14,7 @@ namespace GuessTheNumber.Logicas
             switch (dificuldade)
             {
                 case 0:
-                    JogoRodando.NovoJogo(typeof(int).GetEnumValues(dificuldade));
+                    JogoRodando.NovoJogo(Dificuldades.Facil);
                     break;
                 case 1:
                     JogoRodando.NovoJogo(Dificuldades.Medio);
