@@ -24,11 +24,26 @@ namespace GuessTheNumber.Logicas
             Console.WriteLine("3 - Insano");
             Console.WriteLine("4 - IMPOSSÍVEL");
             int dificuldade;
-            while (!Int32.TryParse(Console.ReadLine(), out dificuldade))
+            while (true)
             {
-                Console.WriteLine("Valor Inválido.");
+                try
+                {
+                    while (!Int32.TryParse(Console.ReadLine(), out dificuldade))
+                    {
+                        Console.WriteLine("Valor Inválido.");
+                    }
+                    Funcionalidades.DificuldadeSelecionada(dificuldade);
+                    break;
+                }
+                catch (Exceptions.DificuldadeInvalidaException)
+                {
+                    Console.WriteLine("Valor Inválido.");
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
             }
-            Funcionalidades.DificuldadeSelecionada(dificuldade);
         }
     }
 }

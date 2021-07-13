@@ -10,7 +10,6 @@ namespace GuessTheNumber.Logicas
     {
         internal static void DificuldadeSelecionada(int dificuldade)
         {
-
             switch (dificuldade)
             {
                 case 0:
@@ -29,8 +28,7 @@ namespace GuessTheNumber.Logicas
                     JogoRodando.NovoJogo(Dificuldades.IMPOSSIVEL);
                     break;
                 default:
-                    Console.WriteLine("Escolha a dificuldade aqui.");
-                    break;
+                    throw new Exceptions.DificuldadeInvalidaException();
             }
         }
     }
