@@ -11,26 +11,27 @@ namespace GuessTheNumber.Logicas
         {
             int facilidade = Convert.ToInt32(dificuldades);
             Random valorGerado = new Random();
-            int? retorno = null;
+            //int? retorno = null;
             switch (facilidade)
             {
                 case 0:
-                    retorno = valorGerado.Next(0, 100);
-                    break;
+                    return valorGerado.Next(0, 100);
+
                 case 1:
-                    retorno = valorGerado.Next(0, 1000);
-                    break;
+                    return valorGerado.Next(0, 1000);
+
                 case 2:
-                    retorno = valorGerado.Next(0, 999999);
-                    break;
+                    return valorGerado.Next(0, 999999);
+
                 case 3:
-                    retorno = valorGerado.Next(0, 2345987);
-                    break;
+                    return valorGerado.Next(0, 2345987);
+
                 case 4:
-                    retorno = valorGerado.Next(-2345987, 2345999);
-                    break;
+                    return valorGerado.Next(-2345987, 2345999);
+
+                default:
+                    throw new Exception("Valor inválido");
             }
-            return (int)retorno;
         }
     }
 }

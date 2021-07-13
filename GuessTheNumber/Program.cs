@@ -9,7 +9,19 @@ namespace GuessTheNumber
         {
             Console.WriteLine("Bem vindo ao GuessTheNumber!");
             Console.WriteLine("Digite 1 para começar");
-            int iniciar = Convert.ToInt32(Console.ReadLine());
+            int iniciar;
+            while (true)
+            {
+                try
+                {
+                    iniciar = Convert.ToInt32(Console.ReadLine());
+                    break;
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Valor Inválido.");
+                }
+            }
             if (iniciar == 1)
             {
                 try

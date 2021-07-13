@@ -23,7 +23,12 @@ namespace GuessTheNumber.Logicas
             Console.WriteLine("2 - Difícil");
             Console.WriteLine("3 - Insano");
             Console.WriteLine("4 - IMPOSSÍVEL");
-            Funcionalidades.DificuldadeSelecionada(Convert.ToInt32(Console.ReadLine()));
+            int dificuldade;
+            while (!Int32.TryParse(Console.ReadLine(), out dificuldade))
+            {
+                Console.WriteLine("Valor Inválido.");
+            }
+            Funcionalidades.DificuldadeSelecionada(dificuldade);
         }
     }
 }
