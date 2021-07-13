@@ -8,30 +8,13 @@ namespace GuessTheNumber
         static void Main(string[] args)
         {
             Console.WriteLine("Bem vindo ao GuessTheNumber!");
-            Console.WriteLine("Digite 1 para começar");
-            int iniciar;
-            while (true)
+            try
             {
-                try
-                {
-                    iniciar = Convert.ToInt32(Console.ReadLine());
-                    break;
-                }
-                catch (Exception)
-                {
-                    Console.WriteLine("Valor Inválido.");
-                }
+                Jogo.InicializarJogo();
             }
-            if (iniciar == 1)
+            catch (Exception ex)
             {
-                try
-                {
-                    Jogo.InicializarJogo();
-                }
-                catch (Exception ex)
-                {
-                    throw ex;
-                }
+                throw ex;
             }
             Console.WriteLine("Fim de jogo. Pressione qualquer tecla para encerrar.");
             Console.ReadLine();
