@@ -21,22 +21,16 @@ namespace GuessTheNumber.JogoIniciado
             while (tempoCorrido.Elapsed.TotalSeconds <= tempoDificuldade)
             {
                 double tempoFixoEmSegundos = tempoCorrido.Elapsed.TotalSeconds;
-                int novoChute;
-                bool eUmNumero = int.TryParse(Console.ReadLine(), out novoChute);
+                bool eUmNumero = int.TryParse(Console.ReadLine(), out int novoChute);
                 if (eUmNumero)
                 {
                     numeroChutado = novoChute;
                     if (numeroChutado == numeroGerado)
                     {
                         tempoCorrido.Stop();
-                        Console.WriteLine($"PARABÉNS!!! Você acertou o meu número pensado em {Math.Round(tempoCorrido.Elapsed.TotalSeconds, 0)} segundos. Será que da para bater " +
-                            $"o seu tempo?");
-                        Console.WriteLine("Gostaria de jogar novamente? 0 - SIM, 1 - NÃO");
-                        Console.WriteLine("0 - SIM");
-                        Console.WriteLine("1 - NÃO");
-                        int.TryParse(Console.ReadLine(), out int jogarNovamenteVitoria);
-                        if (jogarNovamenteVitoria == 0) Jogo.InicializarJogo();
-                        if (jogarNovamenteVitoria == 1) return;
+                        Console.WriteLine($"PARABÉNS!!! Você acertou o meu número pensado em {Math.Round(tempoCorrido.Elapsed.TotalSeconds, 0)} segundos." +
+                            "Será que da para bater o seu tempo?");
+                        JogarNovamente.ReiniciarOJogo();
                     }
                     else if (numeroChutado < numeroGerado) Console.WriteLine($"Muito baixo. Tempo restante: {Math.Round(tempoDificuldade - tempoFixoEmSegundos, 0)}");
                     else if (numeroChutado > numeroGerado) Console.WriteLine($"Muito Alto. Tempo restante: {Math.Round(tempoDificuldade - tempoFixoEmSegundos, 0)}");
@@ -44,12 +38,7 @@ namespace GuessTheNumber.JogoIniciado
                 else Console.WriteLine("Então... Você precisa acertar um número. Que tal tentar com valores númericos dessa vez?");
             }
             Console.WriteLine($"Tempo esgotado. Não foi dessa vez, amigo. O número gerado era o {numeroGerado}.");
-            Console.WriteLine("Gostaria de jogar novamente?");
-            Console.WriteLine("0 - SIM");
-            Console.WriteLine("1 - NÃO");
-            int.TryParse(Console.ReadLine(), out int jogarNovamente);
-            if (jogarNovamente == 0) Jogo.InicializarJogo();
-            if (jogarNovamente == 1) return;
+            JogarNovamente.ReiniciarOJogo();
         }
     }
 }
