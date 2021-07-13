@@ -26,7 +26,8 @@ namespace GuessTheNumber.JogoIniciado
                 if (numeroChutado == numeroGerado)
                 {
                     tempoCorrido.Stop();
-                    Console.WriteLine($"PARABÉNS!!! Você acertou com um total de {tempoCorrido.Elapsed.TotalSeconds} segundos.");
+                    Console.WriteLine($"PARABÉNS!!! Você acertou o meu número pensado em {tempoCorrido.Elapsed.TotalSeconds} segundos. Será que da para bater " +
+                        $"o seu recorde?");
                     Console.WriteLine("Gostaria de jogar novamente? 0 - SIM, 1 - NÃO");
                     Console.WriteLine("0 - SIM");
                     Console.WriteLine("1 - NÃO");
